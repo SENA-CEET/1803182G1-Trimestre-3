@@ -1,5 +1,7 @@
 -- DDL(data definition lenguaje) estructura
 
+-- importante de mysql 8 en adelante toca usar esto para la zona horaria 
+-- ?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 
 create schema ddl;
 use ddl;
