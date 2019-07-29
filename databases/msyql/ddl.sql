@@ -136,11 +136,89 @@ create table cliente
 );
 drop table cliente;
 
+-- borrar una tabla 
+-- drop table [nombre_tabla];
+use proyecto;
+drop table competencia;
+
 -- alter table sirve para cambiar la estructura de una tabla
 
 alter table ddl.cliente add column (
     telefono varchar(15) not null
     );
+
+-- agregar columna
+alter table programa add column(
+	columna varchar(10)
+);
+
+-- borrar una columna
+ALTER TABLE programa DROP COLUMN columna;
+
+-- borrar una llave primaria
+ALTER TABLE programa 
+DROP PRIMARY KEY;
+
+-- agregar una llave primaria
+ALTER TABLE programa 
+ADD PRIMARY KEY (codigo, version);
+
+-- agregar un indice unique
+ALTER TABLE programa
+ADD UNIQUE INDEX prog_nomb_uk (nombre ASC) VISIBLE;
+;
+
+-- borrar un indice
+alter table programa 
+drop index nombre;
+
+-- agregar un indice
+ALTER TABLE programa 
+ADD INDEX sigla_idx (sigla ASC) VISIBLE;
+;
+
+-- cambiar el nombre de una columna y su configuración
+ALTER TABLE programa
+CHANGE COLUMN sigla sigla varchar(10) not null;
+
+-- borrar una llave foranea y su indice
+ALTER TABLE programa 
+DROP FOREIGN KEY nive_forma_fk;
+ALTER TABLE programa 
+DROP INDEX nive_forma_fk ;
+
+-- agregar una llave foranea
+ALTER TABLE programa 
+ADD INDEX fk_nivel_formacion_idx (nivel);
+;
+ALTER TABLE programa 
+ADD CONSTRAINT fk_nivel_formacion
+  FOREIGN KEY (nivel)
+  REFERENCES nivel_formacion (nivel)
+  ON DELETE NO ACTION
+  ON UPDATE CASCADE;
+  
+-- modificar una columna
+alter table programa modify sigla varchar(10) not null;
+
+
+
+-- como consultar la estructura de una tabla desde consola
+describe programa;
+
+-- como consular los indices de una tabla
+show index from programa;
+
+-- show 
+
+
+
+
+
+
+
+
+
 
 
 
