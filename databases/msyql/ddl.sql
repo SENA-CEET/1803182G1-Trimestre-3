@@ -211,19 +211,6 @@ describe programa;
 -- como consular los indices de una tabla
 show index from programa;
 
--- show 
-
-
-
-
-
-
-
-
-
-
-
-
 -- ejemplo de create table
 create table tipo_ambiente
 (
@@ -236,12 +223,12 @@ create table sede(
     nombre_sede varchar(50) primary key ,
     direccion varchar(400) not null ,
     estado varchar(40) not null
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 create table ambiente
 (
-    numero_ambiente varchar(50),
-    nombre_sede varchar(50),
+    numero_ambiente varchar(50) comment 'numero del ambiente de la sede',
+    nombre_sede varchar(50) ,
     descripcion varchar(1000) not null ,
     estado varchar(40) not null ,
     limitacion varchar(40) not null ,
@@ -249,8 +236,9 @@ create table ambiente
     primary key (numero_ambiente, nombre_sede),
     constraint fk_tipo_ambi foreign key (tipo) references tipo_ambiente(tipo),
     constraint fk_sede foreign key (nombre_sede) references sede(nombre_sede)
-);
+) engine innodb;
 
+create schema observador_de_proyectos;
 
 
 
