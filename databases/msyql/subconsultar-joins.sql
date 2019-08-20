@@ -296,6 +296,10 @@ where a.numero_documento is not null
   and primer_apellido = 'carrillo'
 ;
 
+-- order by
+select * from observador_de_proyectos.cliente order by primer_nombre asc;
+
+select * from observador_de_proyectos.cliente order by primer_nombre desc;
 
 
 
